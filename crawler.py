@@ -23,13 +23,20 @@ for site_name, site in sites.items():
         content = post
         for i, e in enumerate(site["content"]):
             content = content.find(e["elm"], attrs=e["attrs"])
-        tmp_keys = ["title", "link", "image"]
         c = {"site": "(" + site_name + ")"}
-        for k in tmp_keys:
+        for k in ["title", "link", "image"]:
             tmp_cont = content
             for i, e in enumerate(site[k]):
-                if "key" in e:
+                # print(k, e, tmp_cont)
+                if e is None:
+                    if soup.head.find("link", rel="icon") is not None:
+                        c[k] = soup.head.find("link", rel="icon").get("href")
+                    else:
+                        c[k] = ""
+                elif "key" in e:
                     c[k] = tmp_cont.get(e["key"])
+                elif "string" in e:
+                    c[k] = tmp_cont.string
                 else:
                     tmp_cont = tmp_cont.find(e["elm"], attrs=e["attrs"])
         contents.append(c)
@@ -40,7 +47,7 @@ for content in contents:
     dom = """
     <div class="box" style="height: 350px; width:300px; display: inline-block;">
         <div class="thumbnail">
-            <img style="max-width:100%;" src=
+            <img width="100%" src=
     """ +\
     content["image"] +\
     """

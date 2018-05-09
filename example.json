@@ -1,0 +1,37 @@
+{
+    "ua": {"User-Agent": "hoge"},
+    "dai2keniki": {
+        "url": "https://takasa-5.blogspot.jp/",
+        "posts": [
+            {
+                "elm": "div",
+                "attrs": {"id": "Blog1"}
+            },
+            {
+                "elm": "div",
+                "attrs": {"class": "date-outer"}
+            }
+        ],
+        "content": [
+            {
+                "elm": "h3",
+                "attrs": {"class": "entry-title"}
+            },
+            {
+                "elm": "a",
+                "attrs": {}
+            }
+        ],
+        "title": [
+            {
+                "string": "string"
+            }
+        ],
+        "link": [
+            {
+                "key": "href"
+            }
+        ],
+        "image": [null]
+    }
+}
