@@ -2,7 +2,7 @@
 If you patrol many Web site every day, my_patroller will help your patrol especially when visiting a blog site with both titles and images (and many annoying ads).
 
 ### Screenshots
-Note that my blog is not good example because all of posts don't have image and do NOT annoy!  
+Note that my blog is not a good example because all of posts don't have image and do NOT annoy!  
 - This is my blog before being processed by my-patroller.  
 ![before](./before.png)
   
@@ -94,3 +94,9 @@ If you want to add the site which doesn't always have image in post (not recomme
   
 
 After completing the above troublesome preparations, you can spend comfortable days with my_patroller.
+
+### Usage
+```
+python crawler.py
+```
+And visit http://127.0.0.1:5000/ !
