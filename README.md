@@ -2,7 +2,7 @@
 If you patrol many Web site every day, my_patroller will help your patrol especially when visiting a blog site with both titles and images (and many annoying ads).
 
 ### Screenshots
-Note that my blog is not a good example because all of posts don't have image and do NOT annoy!  
+Note that my blog is not a good example because update frequency is very slow, all of posts don't have image, and do NOT annoy!  
 - This is my blog before being processed by my-patroller.  
 ![before](./before.png)
   
@@ -32,6 +32,7 @@ Next, you must write site informations. Site information is:
 {
     "<site-name-1>": {
         "url": "<site-url>",
+        "next_url", "<continuation-of-url>",
         "posts": [],
         "content": [],
         "title": [],
@@ -43,6 +44,21 @@ Next, you must write site informations. Site information is:
     }
 }
 ```
+If one of your favorite site has url such as "http://example.com" and the next page has "http://example.com/page-2.html", you can write:  
+```
+{
+    "url": "http://example.com/",
+    "next_url": "page-{}.html"
+}
+```
+And if the next page has "http://example.com/page/2":
+```
+{
+    "next_url": "page/{}"
+}
+```
+I'm sorry that I can't write according to this rule in example.json(my blog).  
+  
 Keys from ```"posts"``` to ```"image"``` are necessary for identify the position of contents. Open the inspector in your browser, investigate the element, and fill them.  
 ```"posts"``` must be filled with element that all the posts have. If all the posts are in ```<div class="date-outer"></div>```, you can write:
 ```
@@ -97,6 +113,6 @@ After completing the above troublesome preparations, you can spend comfortable d
 
 ### Usage
 ```
-python crawler.py
+python patrollr.py
 ```
 And visit http://127.0.0.1:5000/ !

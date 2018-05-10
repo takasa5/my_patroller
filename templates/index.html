@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head></head>
-<body>
-    {% autoescape False %}
-        {{ contents }}
-    {% endautoescape %}
-</body>
+    <head>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+        <script language="javascript" type="text/javascript">
+            var socket = io('http://127.0.0.1:5000');
+            socket.on("return", function(msg) {
+                console.log("suc");
+                $("main").append(msg);
+            });
+        </script>
+    </head>
+    <body>
+        <main>
+        {% autoescape False %}
+            {{ contents }}
+        {% endautoescape %}
+        </main>
+        <a href="#" onclick="socket.emit('continue');return false;">続き</a>
+    </body>
 </html>
