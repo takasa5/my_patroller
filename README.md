@@ -33,6 +33,7 @@ Next, you must write site informations. Site information is:
     "<site-name-1>": {
         "url": "<site-url>",
         "next_url", "<continuation-of-url>",
+        "page_origin": 1,
         "posts": [],
         "content": [],
         "title": [],
@@ -57,6 +58,14 @@ And if the next page has "http://example.com/page/2":
     "next_url": "page/{}"
 }
 ```
+```"page_origin"``` key is the number of the first page. In most cases, it is 1.
+In the case of second page has url such as "http://example.com/page-1":
+```
+{
+    "page_origin": 0
+}
+```
+
 I'm sorry that I can't write according to this rule in example.json(my blog).  
   
 Keys from ```"posts"``` to ```"image"``` are necessary for identify the position of contents. Open the inspector in your browser, investigate the element, and fill them.  

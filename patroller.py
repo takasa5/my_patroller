@@ -16,7 +16,7 @@ def get_contents(page=1):
         if page==1:
             url = site["url"]
         else:
-            url = site["url"] + site["next_url"].format(page)
+            url = site["url"] + site["next_url"].format(site["page_origin"] + page - 1)
         resp = requests.get(url, timeout=10, headers=headers)
         soup = BeautifulSoup(resp.text, "html.parser")
         posts = soup
