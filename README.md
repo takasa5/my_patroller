@@ -92,7 +92,7 @@ Although the above example is sufficient, to make it more reliable, you can spec
 ]
 ```
 Next, you must specify where title/link/image is. If they are in a deep hierarchy and have the same parent element, you can write it in ```"content"```. You can leave ```"content"``` be empty list.  
-In keys ```"title"```, ```"link"``` and ```"image"```, you can write as above but their last element must has key ```"key"``` or ```"string"```. For example, my blog has following element:
+In keys ```"title"```, ```"link"``` and ```"image"```, you can write as above but their last element has to has key ```"key"``` or ```"string"```. For example, my blog has following element:
 ```
 <a href="https://takasa-5.blogspot.jp/2018/04/opencv-5.html">OpenCV で星座検出(5) - 探索の効率化</a>
 ```
@@ -116,7 +116,18 @@ If you want to add the site which doesn't always have image in post (not recomme
 ```
 "image": [null]
 ```
-  
+```"date"``` and ```"date-format"``` is an optional key. If you add these, try to execute this program with option ```--dateorder``` or ```-d```. Then you can view it in chronological order.  
+```"date"``` can be written like ```"title"``` and so on. If the date in your target site is written like follow:
+```
+5月 26, 2018
+```
+Then you have to write ```date-format``` like follow:
+```
+{
+    "date-format": "%m月 %d, %Y"
+}
+```
+This notation is in accordance with *datetime* module.
 
 After completing the above troublesome preparations, you can spend comfortable days with my_patroller.
 
